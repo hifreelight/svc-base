@@ -16,4 +16,5 @@ RUN npm i -g cnpm
 ONBUILD RUN cnpm install --production
 ONBUILD RUN apk del build-deps
 
-CMD [ "pm2-runtime", "start", "pm2.json" ]
+VOLUME ["/data", "/logs"]
+CMD [ "pm2-runtime", "start", "server/server.js" ]
