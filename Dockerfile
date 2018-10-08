@@ -2,7 +2,8 @@
 FROM keymetrics/pm2:8-alpine
 WORKDIR /app
 # Install python
-RUN apk add --update --virtual build-deps \
+RUN apk add --update --virtual build-deps --no-cache \
+    fontconfig \
     python \
     python-dev \
     py-pip \
