@@ -2,7 +2,7 @@
 FROM keymetrics/pm2:8-alpine
 WORKDIR /app
 # Install python
-RUN apk add --update \
+RUN apk add --update --virtual build-deps \
     python \
     python-dev \
     py-pip \
@@ -16,7 +16,7 @@ ENV NPM_CONFIG_LOGLEVEL warn
 RUN npm i -g cnpm
 RUN cnpm install --production
 ONBUILD RUN cnpm install --production
-
+ONBUILD RUN apk del build-deps
 # Show current folder structure in logs
 RUN ls -al -R
 EXPOSE 3000
