@@ -15,6 +15,7 @@ ONBUILD COPY . /app
 ENV NPM_CONFIG_LOGLEVEL warn
 RUN npm i -g cnpm
 RUN cnpm install --production
+ONBUILD RUN cnpm install --production
 
 # Show current folder structure in logs
 RUN ls -al -R
