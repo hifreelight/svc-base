@@ -1,10 +1,8 @@
 docker-build :
-	docker build -t registry.cn-beijing.aliyuncs.com/zizai/svc-base:8-wheezy .
-docker-push :	
-	docker push registry.cn-beijing.aliyuncs.com/zizai/svc-base:8-wheezy
+	docker build -t frank/test:8-wheezy .
 docker-run :
-	docker run -d -p 3000:3000  --name svc-base registry.cn-beijing.aliyuncs.com/zizai/svc-base:8-wheezy
+	docker run -d -p 3000:3000  --name test frank/test:8-wheezy
 docker-exec :
-	docker exec -it svc-base bash
+	docker exec -it test bash
 docker-rm :
-	docker rm -f svc-base
+	docker rm -f test
